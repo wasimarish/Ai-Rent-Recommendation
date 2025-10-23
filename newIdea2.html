@@ -60,33 +60,54 @@
             font-size: 1.3rem;
         }
 
-        .important-locations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* Dynamic Location Groups */
+        .dynamic-locations {
             margin-bottom: 20px;
         }
 
-        .location-group {
+        .dynamic-location-group {
             background: rgba(255, 255, 255, 0.8);
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             border: 2px solid #e0e0e0;
+            margin-bottom: 15px;
             transition: all 0.3s ease;
         }
 
-        .location-group:hover {
+        .dynamic-location-group:hover {
             border-color: #667eea;
             transform: translateY(-2px);
         }
 
-        .location-group h4 {
+        .dynamic-location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
+        }
+
+        .dynamic-location-header h4 {
             color: #333;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 1.1rem;
+        }
+
+        .remove-location {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .dynamic-location-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
         }
 
         .location-input-group {
@@ -158,56 +179,6 @@
             background: #667eea;
             border-radius: 50%;
             cursor: pointer;
-        }
-
-        /* Dynamic Location Groups */
-        .dynamic-locations {
-            margin-bottom: 20px;
-        }
-
-        .dynamic-location-group {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .dynamic-location-group:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .dynamic-location-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .dynamic-location-header h4 {
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.1rem;
-        }
-
-        .remove-location {
-            background: #FF6B6B;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .dynamic-location-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 15px;
         }
 
         .add-location-btn {
@@ -295,6 +266,44 @@
         #map {
             height: 100%;
             width: 100%;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 12px 16px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #5a6fd8;
         }
 
         .property-card {
@@ -529,6 +538,100 @@
             background: #e9ecef;
         }
 
+        /* Add to Important Locations Button */
+        .add-to-important-btn {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-important-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+        }
+
+        /* Modal for selecting location type */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-btn.primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .modal-btn.secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #e0e0e0;
+        }
+
         /* Autocomplete dropdown styling */
         .pac-container {
             border-radius: 8px;
@@ -612,16 +715,20 @@
                 grid-template-columns: 1fr;
             }
             
-            .important-locations {
-                grid-template-columns: 1fr;
-            }
-            
             .match-actions {
                 flex-direction: column;
             }
             
             .match-btn {
                 width: 100%;
+            }
+            
+            .search-container {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -640,50 +747,6 @@
         <div class="match-finder-section">
             <h3>🎯 Set Your Important Locations</h3>
             
-            <div class="important-locations">
-                <div class="location-group">
-                    <h4>🏢 Office Location</h4>
-                    <div class="location-input-group">
-                        <label for="office_address">Office Address</label>
-                        <input type="text" id="office_address" placeholder="e.g., Bandra Kurla Complex, Mumbai">
-                    </div>
-                    <div class="priority-slider">
-                        <label>Commute Priority: <span class="slider-value" id="office_priority_value">5</span></label>
-                        <div class="slider-container">
-                            <input type="range" id="office_priority" min="1" max="10" value="5" class="priority-slider">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="location-group">
-                    <h4>🏫 Child's School</h4>
-                    <div class="location-input-group">
-                        <label for="school_address">School Address</label>
-                        <input type="text" id="school_address" placeholder="e.g., Dhirubhai Ambani International School, Mumbai">
-                    </div>
-                    <div class="priority-slider">
-                        <label>School Priority: <span class="slider-value" id="school_priority_value">8</span></label>
-                        <div class="slider-container">
-                            <input type="range" id="school_priority" min="1" max="10" value="8" class="priority-slider">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="location-group">
-                    <h4>🏥 Hospital/Clinic</h4>
-                    <div class="location-input-group">
-                        <label for="hospital_address">Hospital Address</label>
-                        <input type="text" id="hospital_address" placeholder="e.g., Lilavati Hospital, Mumbai">
-                    </div>
-                    <div class="priority-slider">
-                        <label>Hospital Priority: <span class="slider-value" id="hospital_priority_value">6</span></label>
-                        <div class="slider-container">
-                            <input type="range" id="hospital_priority" min="1" max="10" value="6" class="priority-slider">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Dynamic Location Groups -->
             <div class="dynamic-locations" id="dynamicLocations">
                 <!-- Dynamic location groups will be added here -->
@@ -696,21 +759,18 @@
             <div class="address-examples">
                 <h5>💡 Example Addresses (Click to use):</h5>
                 <div class="example-list">
-                    <div class="example-item" onclick="useExample('office', 'Bandra Kurla Complex, Mumbai')">Bandra Kurla Complex, Mumbai</div>
-                    <div class="example-item" onclick="useExample('office', 'Nariman Point, Mumbai')">Nariman Point, Mumbai</div>
-                    <div class="example-item" onclick="useExample('school', 'Dhirubhai Ambani International School, Mumbai')">Dhirubhai Ambani School</div>
-                    <div class="example-item" onclick="useExample('school', 'Jamnabai Narsee School, Juhu')">Jamnabai Narsee School</div>
-                    <div class="example-item" onclick="useExample('hospital', 'Lilavati Hospital, Bandra')">Lilavati Hospital, Bandra</div>
-                    <div class="example-item" onclick="useExample('hospital', 'Kokilaben Hospital, Andheri')">Kokilaben Hospital</div>
+                    <div class="example-item" onclick="useExample('Bandra Kurla Complex, Mumbai')">Bandra Kurla Complex, Mumbai</div>
+                    <div class="example-item" onclick="useExample('Nariman Point, Mumbai')">Nariman Point, Mumbai</div>
+                    <div class="example-item" onclick="useExample('Dhirubhai Ambani International School, Mumbai')">Dhirubhai Ambani School</div>
+                    <div class="example-item" onclick="useExample('Jamnabai Narsee School, Juhu')">Jamnabai Narsee School</div>
+                    <div class="example-item" onclick="useExample('Lilavati Hospital, Bandra')">Lilavati Hospital, Bandra</div>
+                    <div class="example-item" onclick="useExample('Kokilaben Hospital, Andheri')">Kokilaben Hospital</div>
                 </div>
             </div>
 
             <div class="match-actions">
                 <button class="match-btn primary" onclick="findPropertyMatches()">
                     🔍 Find Matching Properties
-                </button>
-                <button class="match-btn secondary" onclick="useCurrentLocationForOffice()">
-                    📍 Use My Location for Office
                 </button>
                 <button class="match-btn secondary" onclick="resetMatchFinder()">
                     🔄 Reset
@@ -724,7 +784,7 @@
             <div class="match-stats">
                 <div class="stat-item">
                     <div class="stat-value" id="totalProperties">0</div>
-                    <div class="stat-label">Total Properties</div>
+                    <div class="stat-label">Properties (60%+)</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="highMatches">0</div>
@@ -751,7 +811,54 @@
                 <div id="results"></div>
             </div>
             <div class="map-container">
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="address-search" class="search-input" placeholder="Search for an address or place...">
+                        <button class="search-button" onclick="searchAddress()">🔍</button>
+                    </div>
+                </div>
                 <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding searched address to important locations -->
+    <div class="modal" id="addLocationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Add to Important Locations</div>
+                <button class="close-modal" onclick="closeAddLocationModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Add the searched address to your important locations:</p>
+                <div class="location-input-group" style="margin-top: 15px;">
+                    <label for="modal_location_type">Location Type</label>
+                    <select id="modal_location_type">
+                        <option value="office">🏢 Office</option>
+                        <option value="school">🏫 School</option>
+                        <option value="hospital">🏥 Hospital</option>
+                        <option value="gym">💪 Gym/Fitness Center</option>
+                        <option value="temple">🛕 Temple</option>
+                        <option value="mosque">🕌 Mosque</option>
+                        <option value="market">🛒 Market/Shopping</option>
+                        <option value="park">🌳 Park/Recreation</option>
+                        <option value="restaurant">🍽️ Restaurant/Food</option>
+                        <option value="transport">🚇 Transport Hub</option>
+                        <option value="other" selected>📍 Other Important Location</option>
+                    </select>
+                </div>
+                <div class="location-input-group">
+                    <label for="modal_location_priority">Priority</label>
+                    <div class="slider-container">
+                        <input type="range" id="modal_location_priority" min="1" max="10" value="5">
+                        <span class="slider-value" id="modal_priority_value">5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" onclick="closeAddLocationModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="addSearchedLocation()">Add Location</button>
             </div>
         </div>
     </div>
@@ -783,15 +890,24 @@
         let infoWindows = [];
         let geocoder;
         let autocomplete;
+        let searchAutocomplete;
+        let searchMarker;
+        let currentSearchedAddress = '';
         
         // Property Match Finder variables
         let matchResults = [];
-        let importantLocations = {
-            office: null,
-            school: null,
-            hospital: null
-        };
+        let importantLocations = {};
         let dynamicLocations = []; // For storing dynamic location inputs
+        let dynamicAutocompletes = []; // Store autocomplete instances for dynamic location inputs
+
+        // Initialize with one location by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show welcome message
+            showStatusMessage('Welcome! Enter your important locations to find matching properties.', 'success');
+            
+            // Add one initial location
+            addDynamicLocation();
+        });
 
         function findColumn(possibleNames) {
             for (let name of possibleNames) {
@@ -823,71 +939,57 @@
             // Initialize priority sliders
             initializePrioritySliders();
             
-            // Initialize autocomplete for address inputs
-            initAutocomplete();
+            // Initialize autocomplete after a short delay to ensure DOM is ready
+            setTimeout(() => {
+                checkGoogleMapsReady();
+            }, 500);
             
             loadData();
         }
 
-        // Initialize Google Places Autocomplete for address inputs
+        // Check if Google Maps API is ready and initialize autocomplete
+        function checkGoogleMapsReady() {
+            if (typeof google !== 'undefined' && google.maps && google.maps.places) {
+                initAutocomplete();
+                initSearchAutocomplete();
+            } else {
+                setTimeout(checkGoogleMapsReady, 100);
+            }
+        }
+
+        // Initialize Google Places Autocomplete for all address inputs
         function initAutocomplete() {
-            // Initialize autocomplete for fixed address inputs
-            const officeInput = document.getElementById('office_address');
-            const schoolInput = document.getElementById('school_address');
-            const hospitalInput = document.getElementById('hospital_address');
-            
-            if (officeInput) {
-                const officeAutocomplete = new google.maps.places.Autocomplete(officeInput, {
-                    types: ['geocode'],
-                    componentRestrictions: { country: 'in' }
-                });
-                officeAutocomplete.addListener('place_changed', function() {
-                    const place = officeAutocomplete.getPlace();
-                    if (place.geometry) {
-                        showStatusMessage(`Office location set to: ${place.formatted_address}`, 'success');
-                    }
-                });
-            }
-            
-            if (schoolInput) {
-                const schoolAutocomplete = new google.maps.places.Autocomplete(schoolInput, {
-                    types: ['school', 'university'],
-                    componentRestrictions: { country: 'in' }
-                });
-                schoolAutocomplete.addListener('place_changed', function() {
-                    const place = schoolAutocomplete.getPlace();
-                    if (place.geometry) {
-                        showStatusMessage(`School location set to: ${place.formatted_address}`, 'success');
-                    }
-                });
-            }
-            
-            if (hospitalInput) {
-                const hospitalAutocomplete = new google.maps.places.Autocomplete(hospitalInput, {
-                    types: ['hospital', 'health'],
-                    componentRestrictions: { country: 'in' }
-                });
-                hospitalAutocomplete.addListener('place_changed', function() {
-                    const place = hospitalAutocomplete.getPlace();
-                    if (place.geometry) {
-                        showStatusMessage(`Hospital location set to: ${place.formatted_address}`, 'success');
-                    }
-                });
-            }
-            
-            // Initialize autocomplete for any existing dynamic location inputs
+            // Reinitialize autocomplete for all existing dynamic location inputs
+            reinitializeAllAutocompletes();
+        }
+
+        // Reinitialize autocomplete for all dynamic location inputs
+        function reinitializeAllAutocompletes() {
+            // Clear existing autocomplete instances
+            dynamicAutocompletes.forEach(autocomplete => {
+                if (autocomplete) {
+                    google.maps.event.clearInstanceListeners(autocomplete);
+                }
+            });
+            dynamicAutocompletes = [];
+
+            // Initialize autocomplete for all existing dynamic location inputs
             dynamicLocations.forEach(locationId => {
                 const addressInput = document.getElementById(`${locationId}_address`);
                 if (addressInput) {
-                    initAutocompleteForInput(addressInput);
+                    const autocomplete = initAutocompleteForInput(addressInput);
+                    dynamicAutocompletes.push(autocomplete);
                 }
             });
         }
 
         // Initialize autocomplete for a specific input element
         function initAutocompleteForInput(inputElement) {
+            // Clear any existing event listeners
+            google.maps.event.clearInstanceListeners(inputElement);
+            
             const autocomplete = new google.maps.places.Autocomplete(inputElement, {
-                types: ['geocode'],
+                types: ['geocode', 'establishment'],
                 componentRestrictions: { country: 'in' }
             });
             
@@ -898,7 +1000,193 @@
                 }
             });
             
+            // Prevent form submission when pressing Enter on autocomplete
+            inputElement.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            
             return autocomplete;
+        }
+
+        // Initialize search autocomplete
+        function initSearchAutocomplete() {
+            const searchInput = document.getElementById('address-search');
+            searchAutocomplete = new google.maps.places.Autocomplete(searchInput, {
+                types: ['geocode', 'establishment'],
+                componentRestrictions: { country: 'in' }
+            });
+            
+            searchAutocomplete.addListener('place_changed', function() {
+                const place = searchAutocomplete.getPlace();
+                if (place.geometry) {
+                    // Center map on selected location
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);
+                    
+                    // Add a marker for the searched location
+                    if (searchMarker) {
+                        searchMarker.setMap(null);
+                    }
+                    
+                    searchMarker = new google.maps.Marker({
+                        position: place.geometry.location,
+                        map: map,
+                        title: place.name,
+                        icon: {
+                            url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" fill="#FF6B6B" stroke="white" stroke-width="2"/>
+                                    <text x="12" y="16" text-anchor="middle" font-size="10" fill="white" font-weight="bold">📍</text>
+                                </svg>
+                            `),
+                            scaledSize: new google.maps.Size(24, 24),
+                            anchor: new google.maps.Point(12, 12)
+                        }
+                    });
+                    
+                    // Store the searched address
+                    currentSearchedAddress = place.formatted_address;
+                    
+                    // Show info window with place details and "Add to Important" button
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="min-width: 200px;">
+                                <h3 style="margin: 0 0 8px 0; color: #333;">${place.name}</h3>
+                                <p style="margin: 0; color: #666;">${place.formatted_address}</p>
+                                <button class="add-to-important-btn" onclick="openAddLocationModal('${place.formatted_address.replace(/'/g, "\\'")}')">
+                                    ➕ Add to Important Locations
+                                </button>
+                            </div>
+                        `
+                    });
+                    
+                    infoWindow.open(map, searchMarker);
+                    
+                    showStatusMessage(`Showing location: ${place.name}`, 'success');
+                }
+            });
+            
+            // Add event listener for Enter key
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchAddress();
+                }
+            });
+        }
+
+        // Search for address
+        function searchAddress() {
+            const address = document.getElementById('address-search').value;
+            if (!address) {
+                showStatusMessage('Please enter an address to search.', 'warning');
+                return;
+            }
+            
+            geocoder.geocode({ address: address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    // Center map on searched location
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(15);
+                    
+                    // Add a marker for the searched location
+                    if (searchMarker) {
+                        searchMarker.setMap(null);
+                    }
+                    
+                    searchMarker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map,
+                        title: address,
+                        icon: {
+                            url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" fill="#FF6B6B" stroke="white" stroke-width="2"/>
+                                    <text x="12" y="16" text-anchor="middle" font-size="10" fill="white" font-weight="bold">📍</text>
+                                </svg>
+                            `),
+                            scaledSize: new google.maps.Size(24, 24),
+                            anchor: new google.maps.Point(12, 12)
+                        }
+                    });
+                    
+                    // Store the searched address
+                    currentSearchedAddress = results[0].formatted_address;
+                    
+                    // Show info window with place details and "Add to Important" button
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="min-width: 200px;">
+                                <h3 style="margin: 0 0 8px 0; color: #333;">Searched Location</h3>
+                                <p style="margin: 0; color: #666;">${results[0].formatted_address}</p>
+                                <button class="add-to-important-btn" onclick="openAddLocationModal('${results[0].formatted_address.replace(/'/g, "\\'")}')">
+                                    ➕ Add to Important Locations
+                                </button>
+                            </div>
+                        `
+                    });
+                    
+                    infoWindow.open(map, searchMarker);
+                    
+                    showStatusMessage(`Showing location: ${results[0].formatted_address}`, 'success');
+                } else {
+                    showStatusMessage('Location not found. Please try a different address.', 'error');
+                }
+            });
+        }
+
+        // Open modal to add searched location to important locations
+        function openAddLocationModal(address) {
+            currentSearchedAddress = address;
+            document.getElementById('addLocationModal').style.display = 'flex';
+            
+            // Initialize modal slider
+            const modalSlider = document.getElementById('modal_location_priority');
+            const modalValueSpan = document.getElementById('modal_priority_value');
+            modalSlider.addEventListener('input', function() {
+                modalValueSpan.textContent = this.value;
+            });
+        }
+
+        // Close the add location modal
+        function closeAddLocationModal() {
+            document.getElementById('addLocationModal').style.display = 'none';
+        }
+
+        // Add searched location to important locations
+        function addSearchedLocation() {
+            const type = document.getElementById('modal_location_type').value;
+            const priority = parseInt(document.getElementById('modal_location_priority').value);
+            
+            // Add a new dynamic location
+            addDynamicLocation();
+            
+            // Set the values for the new location
+            setTimeout(() => {
+                const lastLocationId = dynamicLocations[dynamicLocations.length - 1];
+                const typeSelect = document.getElementById(`${lastLocationId}_type`);
+                const addressInput = document.getElementById(`${lastLocationId}_address`);
+                const prioritySlider = document.getElementById(`${lastLocationId}_priority`);
+                const priorityValue = document.getElementById(`${lastLocationId}_priority_value`);
+                
+                if (typeSelect && addressInput && prioritySlider && priorityValue) {
+                    typeSelect.value = type;
+                    addressInput.value = currentSearchedAddress;
+                    prioritySlider.value = priority;
+                    priorityValue.textContent = priority;
+                    
+                    // Update the location icon
+                    updateDynamicLocationIcon(lastLocationId);
+                    
+                    // Initialize autocomplete for the new address input
+                    initAutocompleteForInput(addressInput);
+                    
+                    showStatusMessage(`Added "${currentSearchedAddress}" to important locations as ${locationTypes[type].label}`, 'success');
+                }
+            }, 100);
+            
+            closeAddLocationModal();
         }
 
         // Initialize priority sliders for Property Match Finder
@@ -923,7 +1211,7 @@
             
             locationGroup.innerHTML = `
                 <div class="dynamic-location-header">
-                    <h4>📍 Additional Location</h4>
+                    <h4>📍 Important Location</h4>
                     <button class="remove-location" onclick="removeDynamicLocation('${locationId}')">Remove</button>
                 </div>
                 <div class="dynamic-location-content">
@@ -931,7 +1219,7 @@
                         <label for="${locationId}_type">Location Type</label>
                         <select id="${locationId}_type" onchange="updateDynamicLocationIcon('${locationId}')">
                             ${Object.keys(locationTypes).map(type => 
-                                `<option value="${type}">${locationTypes[type].label}</option>`
+                                `<option value="${type}">${locationTypes[type].icon} ${locationTypes[type].label}</option>`
                             ).join('')}
                         </select>
                     </div>
@@ -959,11 +1247,15 @@
             
             // Initialize autocomplete for the new address input
             const addressInput = document.getElementById(`${locationId}_address`);
-            if (addressInput) {
-                initAutocompleteForInput(addressInput);
+            if (addressInput && typeof google !== 'undefined' && google.maps && google.maps.places) {
+                const autocomplete = initAutocompleteForInput(addressInput);
+                dynamicAutocompletes.push(autocomplete);
             }
             
             dynamicLocations.push(locationId);
+            
+            // Update the location icon immediately
+            updateDynamicLocationIcon(locationId);
         }
 
         // Update dynamic location icon when type changes
@@ -979,59 +1271,36 @@
         function removeDynamicLocation(locationId) {
             const element = document.getElementById(locationId);
             if (element) {
+                // Find and clean up the autocomplete instance
+                const addressInput = document.getElementById(`${locationId}_address`);
+                if (addressInput) {
+                    google.maps.event.clearInstanceListeners(addressInput);
+                }
+                
                 element.remove();
                 dynamicLocations = dynamicLocations.filter(id => id !== locationId);
+                
+                // Reinitialize autocompletes to ensure they work properly
+                setTimeout(() => {
+                    reinitializeAllAutocompletes();
+                }, 100);
             }
         }
 
         // Use example address
-        function useExample(type, address) {
-            document.getElementById(`${type}_address`).value = address;
-            showStatusMessage(`Added example ${type} address: ${address}`, 'success');
-        }
-
-        // Use current location for office
-        function useCurrentLocationForOffice() {
-            if (!navigator.geolocation) {
-                showStatusMessage('Geolocation is not supported by this browser.', 'error');
-                return;
-            }
-
-            showStatusMessage('Getting your current location...', 'info');
-
-            navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
-                    
-                    // Reverse geocode to get address
-                    geocoder.geocode({ location: { lat, lng } }, function(results, status) {
-                        if (status === 'OK' && results[0]) {
-                            document.getElementById('office_address').value = results[0].formatted_address;
-                            showStatusMessage('Office location set to your current address!', 'success');
-                        } else {
-                            showStatusMessage('Could not find address for your location.', 'error');
-                        }
-                    });
-                },
-                function(error) {
-                    let errorMessage = 'Unable to get your location. ';
-                    switch(error.code) {
-                        case error.PERMISSION_DENIED:
-                            errorMessage += 'Please allow location access.';
-                            break;
-                        case error.POSITION_UNAVAILABLE:
-                            errorMessage += 'Location information is unavailable.';
-                            break;
-                        case error.TIMEOUT:
-                            errorMessage += 'Location request timed out.';
-                            break;
-                        default:
-                            errorMessage += 'An unknown error occurred.';
-                    }
-                    showStatusMessage(errorMessage, 'error');
+        function useExample(address) {
+            // Add a new location with the example address
+            addDynamicLocation();
+            
+            // Set the address in the most recently added location
+            setTimeout(() => {
+                const lastLocationId = dynamicLocations[dynamicLocations.length - 1];
+                const addressInput = document.getElementById(`${lastLocationId}_address`);
+                if (addressInput) {
+                    addressInput.value = address;
+                    showStatusMessage(`Added example address: ${address}`, 'success');
                 }
-            );
+            }, 200);
         }
 
         // Geocode an address to get coordinates
@@ -1107,21 +1376,9 @@
 
         // Main function to find property matches
         async function findPropertyMatches() {
-            // Get addresses from fixed locations
-            const officeAddress = document.getElementById('office_address').value;
-            const schoolAddress = document.getElementById('school_address').value;
-            const hospitalAddress = document.getElementById('hospital_address').value;
-
-            // Get priorities from fixed locations
-            const priorities = {
-                office: parseInt(document.getElementById('office_priority').value),
-                school: parseInt(document.getElementById('school_priority').value),
-                hospital: parseInt(document.getElementById('hospital_priority').value)
-            };
-
-            // Get dynamic locations
-            const dynamicLocationsData = {};
-            const dynamicPriorities = {};
+            // Get all dynamic locations
+            const allLocations = {};
+            const allPriorities = {};
             
             dynamicLocations.forEach(locationId => {
                 const type = document.getElementById(`${locationId}_type`).value;
@@ -1129,23 +1386,10 @@
                 const priority = parseInt(document.getElementById(`${locationId}_priority`).value);
                 
                 if (address) {
-                    dynamicLocationsData[type] = address;
-                    dynamicPriorities[type] = priority;
+                    allLocations[type] = address;
+                    allPriorities[type] = priority;
                 }
             });
-
-            // Combine fixed and dynamic locations
-            const allLocations = {
-                ...(officeAddress && { office: officeAddress }),
-                ...(schoolAddress && { school: schoolAddress }),
-                ...(hospitalAddress && { hospital: hospitalAddress }),
-                ...dynamicLocationsData
-            };
-            
-            const allPriorities = {
-                ...priorities,
-                ...dynamicPriorities
-            };
 
             // Validate at least one address is set
             if (Object.keys(allLocations).length === 0) {
@@ -1207,9 +1451,9 @@
                     };
                 });
 
-                // Filter out properties with 0 score and sort by match score
+                // MODIFIED: Filter out properties with score less than 60% and sort by match score
                 matchResults = matchResults
-                    .filter(property => property.matchScore > 0)
+                    .filter(property => property.matchScore >= 60) // Only show 60%+ matches
                     .sort((a, b) => b.matchScore - a.matchScore);
 
                 // Set filteredData to match results for display
@@ -1223,7 +1467,11 @@
                 // Show match summary
                 document.getElementById('matchSummary').classList.add('active');
                 
-                showStatusMessage(`Found ${matchResults.length} matching properties!`, 'success');
+                if (matchResults.length === 0) {
+                    showStatusMessage('No properties found with 60% or higher match score.', 'warning');
+                } else {
+                    showStatusMessage(`Found ${matchResults.length} properties with 60%+ match score!`, 'success');
+                }
             } catch (error) {
                 showStatusMessage(error, 'error');
             }
@@ -1245,24 +1493,13 @@
 
         // Reset match finder
         function resetMatchFinder() {
-            document.getElementById('office_address').value = '';
-            document.getElementById('school_address').value = '';
-            document.getElementById('hospital_address').value = '';
-            
-            // Reset sliders to default values
-            document.getElementById('office_priority').value = 5;
-            document.getElementById('school_priority').value = 8;
-            document.getElementById('hospital_priority').value = 6;
-            
-            document.getElementById('office_priority_value').textContent = '5';
-            document.getElementById('school_priority_value').textContent = '8';
-            document.getElementById('hospital_priority_value').textContent = '6';
-            
-            // Clear dynamic locations
-            dynamicLocations.forEach(locationId => {
-                removeDynamicLocation(locationId);
-            });
+            // Clear all dynamic locations
+            const dynamicLocationsDiv = document.getElementById('dynamicLocations');
+            dynamicLocationsDiv.innerHTML = '';
             dynamicLocations = [];
+            
+            // Add one default location
+            addDynamicLocation();
             
             matchResults = [];
             document.getElementById('matchSummary').classList.remove('active');
@@ -1612,7 +1849,7 @@
             
             if (matchResults.length > 0) {
                 statsDiv.innerHTML = `
-                    <strong>Showing ${visible} of ${total} matching properties</strong><br>
+                    <strong>Showing ${visible} properties with 60%+ match score</strong><br>
                     <small>Based on proximity to your important locations</small>
                 `;
             } else {
@@ -1682,12 +1919,6 @@
                 </div>
             `;
         }
-
-        // Initialize the application
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show welcome message
-            showStatusMessage('Welcome! Enter your important locations to find matching properties.', 'success');
-        });
         
         // Error handling for Google Maps API
         window.gm_authFailure = function() {
