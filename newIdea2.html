@@ -239,6 +239,170 @@
             background: #e9ecef;
         }
 
+        /* FILTER SECTION STYLES */
+        .filter-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .filter-section h3 {
+            margin-bottom: 12px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 130px;
+            flex: 1;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+            font-size: 0.85rem;
+        }
+
+        .filter-group input, .filter-group select {
+            padding: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .filter-group input:focus, .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .amenities-filter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .amenities-filters-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .amenity-category {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .amenity-category h4 {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        .amenity-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .amenity-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .amenity-checkbox input {
+            margin: 0;
+        }
+
+        .amenity-checkbox label {
+            font-size: 0.85rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .secondary-btn {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .secondary-btn:hover {
+            background: #e9ecef;
+        }
+
+        .success-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .success-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .warning-btn {
+            background: linear-gradient(45deg, #ffc107, #fd7e14);
+            color: white;
+        }
+
+        .warning-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
         .content-area {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -331,6 +495,26 @@
         .property-card.low-match {
             border-left: 4px solid #FF6B6B;
             background: linear-gradient(45deg, #fff0f0, #ffe6e6);
+        }
+        
+        .property-card.top-listing {
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            position: relative;
+        }
+        
+        .property-card.top-listing::before {
+            content: "⭐ TOP LISTING";
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #FFD700;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 1;
         }
 
         .property-name1{
@@ -632,6 +816,103 @@
             border: 1px solid #e0e0e0;
         }
 
+        /* Bounded Area Controls */
+        .bounded-area-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bounded-area-controls.active {
+            display: flex;
+        }
+
+        .bounded-area-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .bounded-area-btn:hover {
+            background: #5a6fd8;
+        }
+
+        .bounded-area-btn.active {
+            background: #4ECDC4;
+        }
+
+        .bounded-area-btn.active:hover {
+            background: #44A08D;
+        }
+
+        /* Top Listings Controls */
+        .top-listings-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .top-listings-select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+        }
+
+        .highlight-top-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-top-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .clear-highlight-btn {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .clear-highlight-btn:hover {
+            background: #e9ecef;
+        }
+
         /* Autocomplete dropdown styling */
         .pac-container {
             border-radius: 8px;
@@ -730,6 +1011,29 @@
                 right: 0;
                 margin-bottom: 10px;
             }
+            
+            .bounded-area-controls {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+            }
+            
+            /* Filter section mobile adjustments */
+            .filter-row {
+                flex-direction: column;
+            }
+            
+            .filter-group {
+                min-width: 100%;
+            }
+            
+            .amenities-filters-container {
+                flex-direction: column;
+            }
+            
+            .amenity-category {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -740,6 +1044,93 @@
             <div>
                 <h1>🏠 Property Match Finder</h1>
                 <p>Find your perfect home based on proximity to important locations</p>
+            </div>
+        </div>
+
+        <!-- FILTER SECTION -->
+        <div class="filter-section">
+            <h3>🔍 Property Filters</h3>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>🏷️ Name</label>
+                    <input type="text" id="filter_name" placeholder="Search by name...">
+                </div>
+                <div class="filter-group">
+                    <label>📍 Address</label>
+                    <input type="text" id="filter_address" placeholder="Search by address...">
+                </div>
+                <div class="filter-group">
+                    <label>🛏️ BHK</label>
+                    <select id="filter_bhk">
+                        <option value="">All BHK</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>💰 Rent (Min)</label>
+                    <input type="text" id="filter_rent_min" placeholder="e.g., 10k, 1.5L, 15000">
+                </div>
+                <div class="filter-group">
+                    <label>💰 Rent (Max)</label>
+                    <input type="text" id="filter_rent_max" placeholder="e.g., 50k, 3L, 30000">
+                </div>
+                <div class="filter-group">
+                    <label>📐 Carpet Area (Min)</label>
+                    <input type="number" id="filter_carArea_min" placeholder="Min sqft...">
+                </div>
+            </div>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>📐 Carpet Area (Max)</label>
+                    <input type="number" id="filter_carArea_max" placeholder="Max sqft...">
+                </div>
+                <div class="filter-group">
+                    <label>🚗 Parking (Total)</label>
+                    <select id="filter_parking">
+                        <option value="">All Parking</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>🪑 Furnished</label>
+                    <select id="filter_furnished">
+                        <option value="">All Furnished</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>📌 Area</label>
+                    <select id="filter_area">
+                        <option value="">All Areas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="amenities-filter" id="amenitiesFilterSection">
+                <h3>✨ Amenities Filter</h3>
+                <div class="amenities-filters-container">
+                    <div class="amenity-category">
+                        <h4>Inside Apartment</h4>
+                        <div class="amenity-checkboxes" id="insideApartmentAmenities">
+                            <!-- Checkboxes will be added dynamically -->
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4>Inside Premises</h4>
+                        <div class="amenity-checkboxes" id="insidePremisesAmenities">
+                            <!-- Checkboxes will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button class="filter-btn primary-btn" onclick="applyPropertyFilters()">Apply Filters</button>
+                <button class="filter-btn secondary-btn" onclick="resetPropertyFilters()">Reset All Filters</button>
+                <button class="filter-btn success-btn" onclick="refreshData()" id="refreshBtn">
+                    🔄 Refresh Data
+                </button>
             </div>
         </div>
 
@@ -799,6 +1190,24 @@
                     <div class="stat-label">Avg Match Score</div>
                 </div>
             </div>
+            
+            <!-- Top Listings Controls -->
+            <div class="top-listings-controls">
+                <label for="topListingsCount">Show Top:</label>
+                <select class="top-listings-select" id="topListingsCount">
+                    <option value="5">Top 5</option>
+                    <option value="10" selected>Top 10</option>
+                    <option value="15">Top 15</option>
+                    <option value="20">Top 20</option>
+                    <option value="25">Top 25</option>
+                </select>
+                <button class="highlight-top-btn" onclick="highlightTopListings()">
+                    ⭐ Highlight Top Listings
+                </button>
+                <button class="clear-highlight-btn" onclick="clearTopListingsHighlight()">
+                    Clear Highlight
+                </button>
+            </div>
         </div>
 
         <!-- Content Area -->
@@ -818,6 +1227,17 @@
                         <button class="search-button" onclick="searchAddress()">🔍</button>
                     </div>
                 </div>
+                
+                <!-- Bounded Area Controls -->
+                <div class="bounded-area-controls" id="boundedAreaControls">
+                    <button class="bounded-area-btn" onclick="toggleBoundedArea()">
+                        <span id="boundedAreaToggleText">🗺️ Show Bounded Area</span>
+                    </button>
+                    <button class="bounded-area-btn" id="filterInAreaBtn" onclick="toggleFilterInArea()">
+                        <span id="filterInAreaText">📍 Show Only Properties in Area</span>
+                    </button>
+                </div>
+                
                 <div id="map"></div>
             </div>
         </div>
@@ -882,6 +1302,30 @@
             'other': { icon: '📍', label: 'Other Important Location' }
         };
 
+        // Define amenities for each category
+        const amenities = {
+            "Inside Apartment": [
+                "Wardrobe", "Geyser", "Air conditioner", "TV", "Light/Fan"
+            ],
+            "Inside Premises": [
+                "Play area", "Gym", "Swimming Pool", "Hall", "Jogging Track"
+            ]
+        };
+
+        // Map variations for amenities to handle different naming in data
+        const amenityVariations = {
+            "Wardrobe": ["Wardrobe", "wardrobe", "Almirah", "almirah"],
+            "Geyser": ["Geyser", "geyser", "Water Heater", "water heater"],
+            "Air conditioner": ["Air conditioner", "AC", "ac", "Air Conditioner", "air conditioner"],
+            "TV": ["TV", "tv", "Television", "television"],
+            "Light/Fan": ["Light", "Fan", "light", "fan", "Light/Fan", "Light & Fan"],
+            "Play area": ["Play area", "play area", "Play Area", "Games", "games", "Court", "court", "Sports", "sports", "Basketball", "Tennis", "Badminton"],
+            "Gym": ["Gym", "gym", "Gymnasium", "gymnasium", "Fitness", "fitness"],
+            "Swimming Pool": ["Swimming Pool", "swimming pool", "Pool", "pool"],
+            "Hall": ["Hall", "hall", "Community Hall", "community hall"],
+            "Jogging Track": ["Jogging Track", "jogging track", "Jogging track", "Track", "track", "Running Track"]
+        };
+
         let map;
         let markers = [];
         let allData = [];
@@ -896,9 +1340,19 @@
         
         // Property Match Finder variables
         let matchResults = [];
-        let importantLocations = {};
+        let importantLocations = {}; // Now supports multiple locations per type
         let dynamicLocations = []; // For storing dynamic location inputs
         let dynamicAutocompletes = []; // Store autocomplete instances for dynamic location inputs
+        
+        // Bounded Area variables
+        let boundedAreaPolygon = null;
+        let isBoundedAreaVisible = false;
+        let isFilterInAreaActive = false;
+        let boundedAreaBounds = null;
+
+        // Top Listings variables
+        let topListingsHighlighted = false;
+        let topListingsMarkers = [];
 
         // Initialize with one location by default
         document.addEventListener('DOMContentLoaded', function() {
@@ -939,55 +1393,28 @@
             // Initialize priority sliders
             initializePrioritySliders();
             
-            // Initialize autocomplete after a short delay to ensure DOM is ready
-            setTimeout(() => {
-                checkGoogleMapsReady();
-            }, 500);
+            // Initialize autocomplete for address inputs
+            initAutocomplete();
+            
+            // Initialize search autocomplete
+            initSearchAutocomplete();
             
             loadData();
         }
 
-        // Check if Google Maps API is ready and initialize autocomplete
-        function checkGoogleMapsReady() {
-            if (typeof google !== 'undefined' && google.maps && google.maps.places) {
-                initAutocomplete();
-                initSearchAutocomplete();
-            } else {
-                setTimeout(checkGoogleMapsReady, 100);
-            }
-        }
-
         // Initialize Google Places Autocomplete for all address inputs
         function initAutocomplete() {
-            // Reinitialize autocomplete for all existing dynamic location inputs
-            reinitializeAllAutocompletes();
-        }
-
-        // Reinitialize autocomplete for all dynamic location inputs
-        function reinitializeAllAutocompletes() {
-            // Clear existing autocomplete instances
-            dynamicAutocompletes.forEach(autocomplete => {
-                if (autocomplete) {
-                    google.maps.event.clearInstanceListeners(autocomplete);
-                }
-            });
-            dynamicAutocompletes = [];
-
-            // Initialize autocomplete for all existing dynamic location inputs
+            // Initialize autocomplete for any existing dynamic location inputs
             dynamicLocations.forEach(locationId => {
                 const addressInput = document.getElementById(`${locationId}_address`);
                 if (addressInput) {
-                    const autocomplete = initAutocompleteForInput(addressInput);
-                    dynamicAutocompletes.push(autocomplete);
+                    initAutocompleteForInput(addressInput);
                 }
             });
         }
 
         // Initialize autocomplete for a specific input element
         function initAutocompleteForInput(inputElement) {
-            // Clear any existing event listeners
-            google.maps.event.clearInstanceListeners(inputElement);
-            
             const autocomplete = new google.maps.places.Autocomplete(inputElement, {
                 types: ['geocode', 'establishment'],
                 componentRestrictions: { country: 'in' }
@@ -997,13 +1424,6 @@
                 const place = autocomplete.getPlace();
                 if (place.geometry) {
                     showStatusMessage(`Location set to: ${place.formatted_address}`, 'success');
-                }
-            });
-            
-            // Prevent form submission when pressing Enter on autocomplete
-            inputElement.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
                 }
             });
             
@@ -1219,7 +1639,7 @@
                         <label for="${locationId}_type">Location Type</label>
                         <select id="${locationId}_type" onchange="updateDynamicLocationIcon('${locationId}')">
                             ${Object.keys(locationTypes).map(type => 
-                                `<option value="${type}">${locationTypes[type].icon} ${locationTypes[type].label}</option>`
+                                `<option value="${type}">${locationTypes[type].label}</option>`
                             ).join('')}
                         </select>
                     </div>
@@ -1247,15 +1667,11 @@
             
             // Initialize autocomplete for the new address input
             const addressInput = document.getElementById(`${locationId}_address`);
-            if (addressInput && typeof google !== 'undefined' && google.maps && google.maps.places) {
-                const autocomplete = initAutocompleteForInput(addressInput);
-                dynamicAutocompletes.push(autocomplete);
+            if (addressInput) {
+                initAutocompleteForInput(addressInput);
             }
             
             dynamicLocations.push(locationId);
-            
-            // Update the location icon immediately
-            updateDynamicLocationIcon(locationId);
         }
 
         // Update dynamic location icon when type changes
@@ -1271,19 +1687,8 @@
         function removeDynamicLocation(locationId) {
             const element = document.getElementById(locationId);
             if (element) {
-                // Find and clean up the autocomplete instance
-                const addressInput = document.getElementById(`${locationId}_address`);
-                if (addressInput) {
-                    google.maps.event.clearInstanceListeners(addressInput);
-                }
-                
                 element.remove();
                 dynamicLocations = dynamicLocations.filter(id => id !== locationId);
-                
-                // Reinitialize autocompletes to ensure they work properly
-                setTimeout(() => {
-                    reinitializeAllAutocompletes();
-                }, 100);
             }
         }
 
@@ -1300,7 +1705,7 @@
                     addressInput.value = address;
                     showStatusMessage(`Added example address: ${address}`, 'success');
                 }
-            }, 200);
+            }, 100);
         }
 
         // Geocode an address to get coordinates
@@ -1341,17 +1746,26 @@
 
             // Calculate scores for each important location
             Object.keys(locations).forEach(locationType => {
-                if (locations[locationType]) {
-                    const distance = calculateDistance(
-                        property.lat, property.lng,
-                        locations[locationType].lat,
-                        locations[locationType].lng
-                    );
+                if (locations[locationType] && locations[locationType].length > 0) {
+                    // For each location type, calculate the best (minimum) distance
+                    let minDistance = Infinity;
                     
-                    distances[locationType] = distance;
+                    locations[locationType].forEach(location => {
+                        const distance = calculateDistance(
+                            property.lat, property.lng,
+                            location.lat,
+                            location.lng
+                        );
+                        
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                        }
+                    });
+                    
+                    distances[locationType] = minDistance;
                     
                     // Convert distance to score (closer = higher score)
-                    const distanceScore = Math.max(0, 100 - (distance * 10)); // 10km = 0 score
+                    const distanceScore = Math.max(0, 100 - (minDistance * 10)); // 10km = 0 score
                     const priorityWeight = priorities[locationType] / 10;
                     
                     totalScore += distanceScore * priorityWeight;
@@ -1374,9 +1788,437 @@
             return 'low-match';
         }
 
+        // Create bounded area polygon with proper shading
+        function createBoundedArea() {
+            // Remove existing bounded area
+            if (boundedAreaPolygon) {
+                boundedAreaPolygon.setMap(null);
+            }
+            
+            // Get all important location coordinates
+            const locationCoords = [];
+            Object.values(importantLocations).forEach(locationArray => {
+                locationArray.forEach(location => {
+                    locationCoords.push({
+                        lat: location.lat,
+                        lng: location.lng
+                    });
+                });
+            });
+            
+            if (locationCoords.length < 2) {
+                showStatusMessage('Need at least 2 locations to create a bounded area', 'warning');
+                return;
+            }
+            
+            // Create a polygon that encompasses all points with a buffer
+            boundedAreaBounds = new google.maps.LatLngBounds();
+            locationCoords.forEach(coord => boundedAreaBounds.extend(coord));
+            
+            // Get the bounds coordinates
+            const ne = boundedAreaBounds.getNorthEast();
+            const sw = boundedAreaBounds.getSouthWest();
+            
+            // Create a polygon with the bounds
+            const polygonCoords = [
+                { lat: ne.lat(), lng: sw.lng() }, // Southwest
+                { lat: ne.lat(), lng: ne.lng() }, // Northwest
+                { lat: sw.lat(), lng: ne.lng() }, // Northeast
+                { lat: sw.lat(), lng: sw.lng() }  // Southeast
+            ];
+            
+            // Create polygon with proper shading
+            boundedAreaPolygon = new google.maps.Polygon({
+                paths: polygonCoords,
+                strokeColor: '#FF6B6B',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF6B6B',
+                fillOpacity: 0.35, // Increased opacity for better visibility
+                map: map
+            });
+            
+            // Fit map to show the bounded area with some padding
+            map.fitBounds(boundedAreaBounds);
+            
+            showStatusMessage('Bounded area created around your important locations', 'success');
+        }
+
+        // Check if a property is within the bounded area
+        function isPropertyInBoundedArea(property) {
+            if (!boundedAreaBounds) return false;
+            
+            const latCol = findColumn(['Latitude', 'lat', 'latitude']);
+            const lngCol = findColumn(['Longitude', 'lng', 'lon', 'longitude']);
+            
+            if (!latCol || !lngCol) return false;
+            
+            const lat = parseFloat(property[latCol]);
+            const lng = parseFloat(property[lngCol]);
+            
+            if (!lat || !lng || isNaN(lat) || isNaN(lng)) return false;
+            
+            const propertyLatLng = new google.maps.LatLng(lat, lng);
+            return boundedAreaBounds.contains(propertyLatLng);
+        }
+
+        // Toggle bounded area visibility
+        function toggleBoundedArea() {
+            if (!boundedAreaPolygon) {
+                createBoundedArea();
+                isBoundedAreaVisible = true;
+                document.getElementById('boundedAreaToggleText').textContent = '🗺️ Hide Bounded Area';
+            } else {
+                boundedAreaPolygon.setMap(isBoundedAreaVisible ? null : map);
+                isBoundedAreaVisible = !isBoundedAreaVisible;
+                document.getElementById('boundedAreaToggleText').textContent = 
+                    isBoundedAreaVisible ? '🗺️ Hide Bounded Area' : '🗺️ Show Bounded Area';
+            }
+        }
+
+        // Toggle filter to show only properties in bounded area
+        function toggleFilterInArea() {
+            isFilterInAreaActive = !isFilterInAreaActive;
+            const filterBtn = document.getElementById('filterInAreaBtn');
+            const filterText = document.getElementById('filterInAreaText');
+            
+            if (isFilterInAreaActive) {
+                if (!boundedAreaBounds) {
+                    createBoundedArea();
+                }
+                
+                // Filter properties to show only those within bounded area
+                filteredData = matchResults.filter(property => isPropertyInBoundedArea(property));
+                filterBtn.classList.add('active');
+                filterText.textContent = '📍 Showing Properties in Area';
+                showStatusMessage(`Showing ${filteredData.length} properties within the bounded area`, 'success');
+            } else {
+                // Show all match results
+                filteredData = [...matchResults];
+                filterBtn.classList.remove('active');
+                filterText.textContent = '📍 Show Only Properties in Area';
+                showStatusMessage('Showing all matching properties', 'info');
+            }
+            
+            displayResults();
+            plotPoints();
+            updateStats();
+        }
+
+        // Enhanced rent input parser to handle formats like 10k, 100k, 1.5L, etc.
+        function parseRentInput(input) {
+            if (!input) return 0;
+            
+            // Convert to string and trim
+            input = String(input).trim().toLowerCase();
+            
+            // Handle different formats
+            if (input.includes('l') || input.includes('lakh')) {
+                // Handle lakh format (e.g., 1.5L, 2L, 1.5 lakh)
+                const numberPart = input.replace(/[^\d.]/g, '');
+                const number = parseFloat(numberPart);
+                return isNaN(number) ? 0 : number * 100000;
+            } else if (input.includes('k') || input.includes('thousand')) {
+                // Handle thousand format (e.g., 10k, 15.5k, 10 thousand)
+                const numberPart = input.replace(/[^\d.]/g, '');
+                const number = parseFloat(numberPart);
+                return isNaN(number) ? 0 : number * 1000;
+            } else if (input.includes('cr') || input.includes('crore')) {
+                // Handle crore format (e.g., 1cr, 1.5cr)
+                const numberPart = input.replace(/[^\d.]/g, '');
+                const number = parseFloat(numberPart);
+                return isNaN(number) ? 0 : number * 10000000;
+            } else {
+                // Handle regular number format
+                const numberPart = input.replace(/[^\d.]/g, '');
+                const number = parseFloat(numberPart);
+                return isNaN(number) ? 0 : number;
+            }
+        }
+
+        // Check if a property has a specific amenity (with variations)
+        function hasAmenity(rowAmenities, selectedAmenity) {
+            if (!rowAmenities || !selectedAmenity) return false;
+            
+            const variations = amenityVariations[selectedAmenity] || [selectedAmenity];
+            
+            return variations.some(variation => 
+                rowAmenities.toLowerCase().includes(variation.toLowerCase())
+            );
+        }
+
+        // Apply property filters
+        function applyPropertyFilters() {
+            const nameFilter = document.getElementById('filter_name').value.toLowerCase();
+            const addressFilter = document.getElementById('filter_address').value.toLowerCase();
+            const bhkFilter = document.getElementById('filter_bhk').value;
+            const parkingFilter = document.getElementById('filter_parking').value;
+            const furnishedFilter = document.getElementById('filter_furnished').value;
+            const areaFilter = document.getElementById('filter_area').value;
+            const rentMinInput = document.getElementById('filter_rent_min').value;
+            const rentMaxInput = document.getElementById('filter_rent_max').value;
+            const carAreaMinFilter = document.getElementById('filter_carArea_min').value;
+            const carAreaMaxFilter = document.getElementById('filter_carArea_max').value;
+            
+            // Parse rent inputs using the enhanced parser
+            const rentMinFilter = parseRentInput(rentMinInput);
+            const rentMaxFilter = parseRentInput(rentMaxInput);
+            
+            // Get selected amenities from both categories
+            const selectedApartmentAmenities = Array.from(document.querySelectorAll('#insideApartmentAmenities input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
+            const selectedPremisesAmenities = Array.from(document.querySelectorAll('#insidePremisesAmenities input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const nameCol = findColumn(['Project_Name', 'name', 'title', 'property']);
+            const addressCol = findColumn(['Location', 'address', 'location']);
+            const bhkCol = findColumn(['BHK', 'bhk']);
+            const parkingCol = findColumn(['Parking', 'parking']);
+            const furnishedCol = findColumn(['Furnishing', 'furnished', 'furnish']);
+            const areaCol = findColumn(['Area', 'area', 'locality']);
+            const priceCol = findColumn(['Rent', 'rent', 'price']);
+            const amenitiesCol = findColumn(['Amenities', 'amenities', 'amenity']);
+            const carAreaCol = findColumn(['Carpet Area', 'carpet area', 'CarArea', 'Carpet_Area']);
+            
+            console.log('Applying filters...');
+            console.log('Rent filter range:', rentMinFilter, 'to', rentMaxFilter);
+            
+            // If we have match results, filter those. Otherwise, filter all data
+            const dataToFilter = matchResults.length > 0 ? matchResults : allData;
+            
+            filteredData = dataToFilter.filter(row => {
+                const nameMatch = !nameFilter || (nameCol && String(row[nameCol] || '').toLowerCase().includes(nameFilter));
+                const addressMatch = !addressFilter || (addressCol && String(row[addressCol] || '').toLowerCase().includes(addressFilter));
+                
+                let bhkMatch = true;
+                if (bhkFilter && bhkCol) {
+                    const rowBHK = String(row[bhkCol] || '').trim();
+                    // Extract numeric value from BHK data
+                    const rowBHKNum = rowBHK.match(/(\d+)/);
+                    const filterBHKNum = bhkFilter.match(/(\d+)/);
+                    
+                    if (rowBHKNum && filterBHKNum) {
+                        bhkMatch = rowBHKNum[1] === filterBHKNum[1];
+                    } else {
+                        bhkMatch = rowBHK === bhkFilter || rowBHK.includes(bhkFilter);
+                    }
+                }
+                
+                let parkingMatch = true;
+                if (parkingFilter && parkingCol) {
+                    const totalParking = calculateTotalParking(row[parkingCol]);
+                    parkingMatch = totalParking.toString() === parkingFilter;
+                }
+                
+                const furnishedMatch = !furnishedFilter || (furnishedCol && row[furnishedCol] === furnishedFilter);
+                const areaMatch = !areaFilter || (areaCol && row[areaCol] === areaFilter);
+                
+                // Carpet Area filter
+                let carAreaMatch = true;
+                if (carAreaCol && (carAreaMinFilter || carAreaMaxFilter)) {
+                    const carAreaValue = parseCarpetArea(row[carAreaCol]);
+                    if (carAreaMinFilter && carAreaValue < parseFloat(carAreaMinFilter)) {
+                        carAreaMatch = false;
+                    }
+                    if (carAreaMaxFilter && carAreaValue > parseFloat(carAreaMaxFilter)) {
+                        carAreaMatch = false;
+                    }
+                }
+                
+                // Rent filter
+                let rentMatch = true;
+                if (priceCol && (rentMinFilter || rentMaxFilter)) {
+                    const rentValue = parsePrice(row[priceCol]);
+                    if (rentMinFilter && rentValue < rentMinFilter) {
+                        rentMatch = false;
+                    }
+                    if (rentMaxFilter && rentValue > rentMaxFilter) {
+                        rentMatch = false;
+                    }
+                }
+                
+                // Amenities filter with variations
+                let apartmentAmenitiesMatch = true;
+                let premisesAmenitiesMatch = true;
+                
+                if ((selectedApartmentAmenities.length > 0 || selectedPremisesAmenities.length > 0) && amenitiesCol) {
+                    const rowAmenities = row[amenitiesCol] || '';
+                    
+                    // Check Inside Apartment amenities
+                    if (selectedApartmentAmenities.length > 0) {
+                        apartmentAmenitiesMatch = selectedApartmentAmenities.every(selAmenity => 
+                            hasAmenity(rowAmenities, selAmenity)
+                        );
+                    }
+                    
+                    // Check Inside Premises amenities
+                    if (selectedPremisesAmenities.length > 0) {
+                        premisesAmenitiesMatch = selectedPremisesAmenities.every(selAmenity => 
+                            hasAmenity(rowAmenities, selAmenity)
+                        );
+                    }
+                }
+                
+                return nameMatch && addressMatch && bhkMatch && parkingMatch && 
+                       furnishedMatch && areaMatch && carAreaMatch && rentMatch && 
+                       apartmentAmenitiesMatch && premisesAmenitiesMatch;
+            });
+            
+            console.log('Filtered results:', filteredData.length);
+            
+            displayResults();
+            plotPoints();
+            updateStats();
+            
+            showStatusMessage(`Applied filters: ${filteredData.length} properties match your criteria`, 'success');
+        }
+
+        // Reset property filters
+        function resetPropertyFilters() {
+            document.getElementById('filter_name').value = '';
+            document.getElementById('filter_address').value = '';
+            document.getElementById('filter_bhk').value = '';
+            document.getElementById('filter_parking').value = '';
+            document.getElementById('filter_furnished').value = '';
+            document.getElementById('filter_area').value = '';
+            document.getElementById('filter_carArea_min').value = '';
+            document.getElementById('filter_carArea_max').value = '';
+            document.getElementById('filter_rent_min').value = '';
+            document.getElementById('filter_rent_max').value = '';
+            
+            // Reset amenities checkboxes
+            document.querySelectorAll('#insideApartmentAmenities input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            document.querySelectorAll('#insidePremisesAmenities input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Reset to original data (either match results or all data)
+            filteredData = matchResults.length > 0 ? [...matchResults] : [...allData];
+            displayResults();
+            plotPoints();
+            
+            showStatusMessage('All property filters have been reset', 'info');
+        }
+
+        // Create amenities checkboxes
+        function createAmenitiesCheckboxes() {
+            // Create checkboxes for Inside Apartment amenities
+            const insideApartmentContainer = document.getElementById('insideApartmentAmenities');
+            amenities["Inside Apartment"].forEach(amenity => {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.className = 'amenity-checkbox';
+                checkboxDiv.innerHTML = `
+                    <input type="checkbox" id="apartment_${amenity.replace(/\s+/g, '_')}" value="${amenity}">
+                    <label for="apartment_${amenity.replace(/\s+/g, '_')}">${amenity}</label>
+                `;
+                insideApartmentContainer.appendChild(checkboxDiv);
+            });
+
+            // Create checkboxes for Inside Premises amenities
+            const insidePremisesContainer = document.getElementById('insidePremisesAmenities');
+            amenities["Inside Premises"].forEach(amenity => {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.className = 'amenity-checkbox';
+                checkboxDiv.innerHTML = `
+                    <input type="checkbox" id="premises_${amenity.replace(/\s+/g, '_')}" value="${amenity}">
+                    <label for="premises_${amenity.replace(/\s+/g, '_')}">${amenity}</label>
+                `;
+                insidePremisesContainer.appendChild(checkboxDiv);
+            });
+        }
+
+        // Populate filter dropdowns
+        function populateFilters() {
+            const filterFields = {
+                'bhk': findColumn(['BHK', 'bhk']),
+                'parking': findColumn(['Parking', 'parking']),
+                'furnished': findColumn(['Furnishing', 'furnished', 'furnish']),
+                'area': findColumn(['Area', 'area', 'locality']),
+            };
+            
+            Object.keys(filterFields).forEach(key => {
+                const column = filterFields[key];
+                console.log(`Populating ${key} filter with column:`, column);
+                
+                if (column) {
+                    const select = document.getElementById(`filter_${key}`);
+                    
+                    let uniqueValues = [];
+                    
+                    if (key === 'bhk') {
+                        // Special handling for BHK values
+                        uniqueValues = [...new Set(allData.map(row => {
+                            const value = row[column];
+                            if (!value) return null;
+                            
+                            // Extract numeric BHK values
+                            const bhkMatch = String(value).match(/(\d+)\s*BHK?/i) || String(value).match(/(\d+)/);
+                            return bhkMatch ? bhkMatch[1] : String(value).trim();
+                        }))].filter(v => v !== null && v !== '' && v !== undefined)
+                        .sort((a, b) => parseInt(a) - parseInt(b));
+                        
+                        console.log('BHK unique values:', uniqueValues);
+                        
+                    } else if (key === 'parking') {
+                        const parkingTotals = allData.map(row => {
+                            return calculateTotalParking(row[column]);
+                        });
+                        
+                        uniqueValues = [...new Set(parkingTotals)]
+                            .filter(v => v !== null && v !== undefined && v !== 0)
+                            .sort((a, b) => a - b);
+                    } else {
+                        uniqueValues = [...new Set(allData.map(row => row[column]))]
+                            .filter(v => v !== '' && v !== null && v !== undefined)
+                            .sort();
+                    }
+                    
+                    // Clear existing options (keep "All" option)
+                    select.innerHTML = '<option value="">All ' + key.charAt(0).toUpperCase() + key.slice(1) + '</option>';
+                    
+                    uniqueValues.forEach(value => {
+                        const option = document.createElement('option');
+                        option.value = value;
+                        
+                        // Format display text for BHK
+                        if (key === 'bhk') {
+                            option.textContent = value + ' BHK';
+                        } else {
+                            option.textContent = value;
+                        }
+                        
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        // Calculate total parking from string
+        function calculateTotalParking(parkingStr) {
+            if (!parkingStr) return 0;
+            
+            const numbers = parkingStr.match(/\d+/g);
+            if (!numbers) return 0;
+            
+            return numbers.reduce((total, num) => total + parseInt(num), 0);
+        }
+
+        // Parse carpet area
+        function parseCarpetArea(areaStr) {
+            if (!areaStr) return 0;
+            if (typeof areaStr === 'string') {
+                // Extract numbers from carpet area string (e.g., "1000 sqft" -> 1000)
+                const match = areaStr.match(/(\d+)/);
+                return match ? parseInt(match[1]) : 0;
+            }
+            return parseFloat(areaStr);
+        }
+
         // Main function to find property matches
         async function findPropertyMatches() {
-            // Get all dynamic locations
+            // Get all dynamic locations - now supports multiple of same type
             const allLocations = {};
             const allPriorities = {};
             
@@ -1386,8 +2228,17 @@
                 const priority = parseInt(document.getElementById(`${locationId}_priority`).value);
                 
                 if (address) {
-                    allLocations[type] = address;
-                    allPriorities[type] = priority;
+                    // Initialize array for this type if it doesn't exist
+                    if (!allLocations[type]) {
+                        allLocations[type] = [];
+                    }
+                    // Add address to the array for this type
+                    allLocations[type].push(address);
+                    
+                    // Store priority (use the highest priority if multiple of same type)
+                    if (!allPriorities[type] || priority > allPriorities[type]) {
+                        allPriorities[type] = priority;
+                    }
                 }
             });
 
@@ -1401,12 +2252,25 @@
             showLoading();
 
             try {
-                // Geocode all addresses
+                // Geocode all addresses - now supports multiple locations per type
                 importantLocations = {};
                 
-                for (const [type, address] of Object.entries(allLocations)) {
-                    importantLocations[type] = await geocodeAddress(address);
+                for (const [type, addresses] of Object.entries(allLocations)) {
+                    importantLocations[type] = [];
+                    
+                    for (const address of addresses) {
+                        const geocodedLocation = await geocodeAddress(address);
+                        importantLocations[type].push(geocodedLocation);
+                    }
                 }
+
+                // Show bounded area controls
+                document.getElementById('boundedAreaControls').classList.add('active');
+
+                // Reset area filter when new search is performed
+                isFilterInAreaActive = false;
+                document.getElementById('filterInAreaBtn').classList.remove('active');
+                document.getElementById('filterInAreaText').textContent = '📍 Show Only Properties in Area';
 
                 // Calculate match scores for all properties
                 matchResults = allData.map(property => {
@@ -1504,6 +2368,22 @@
             matchResults = [];
             document.getElementById('matchSummary').classList.remove('active');
             
+            // Hide bounded area controls
+            document.getElementById('boundedAreaControls').classList.remove('active');
+            
+            // Remove bounded area
+            if (boundedAreaPolygon) {
+                boundedAreaPolygon.setMap(null);
+                boundedAreaPolygon = null;
+            }
+            isBoundedAreaVisible = false;
+            isFilterInAreaActive = false;
+            boundedAreaBounds = null;
+            
+            // Reset filter button
+            document.getElementById('filterInAreaBtn').classList.remove('active');
+            document.getElementById('filterInAreaText').textContent = '📍 Show Only Properties in Area';
+            
             // Reset to show all data
             filteredData = [...allData];
             displayResults();
@@ -1578,6 +2458,8 @@
         }
 
         async function processDataAfterLoad() {
+            populateFilters();
+            createAmenitiesCheckboxes();
             filteredData = [...allData];
             displayResults(); // Display results immediately
             await plotPoints();
@@ -1611,23 +2493,24 @@
             // Add markers for important locations (if in match finder mode)
             if (matchResults.length > 0 && Object.keys(importantLocations).length > 0) {
                 Object.keys(importantLocations).forEach(type => {
-                    if (importantLocations[type]) {
-                        const location = importantLocations[type];
-                        const icon = locationTypes[type]?.icon || '📍';
-                        const title = locationTypes[type]?.label || type;
-                        
-                        const marker = new google.maps.Marker({
-                            position: { lat: location.lat, lng: location.lng },
-                            map: map,
-                            title: `${title}: ${location.address}`,
-                            icon: {
-                                url: `data:image/svg+xml;charset=UTF-8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><text x="15" y="20" font-size="20" text-anchor="middle">${icon}</text></svg>`,
-                                scaledSize: new google.maps.Size(30, 30),
-                                anchor: new google.maps.Point(15, 15)
-                            }
+                    if (importantLocations[type] && importantLocations[type].length > 0) {
+                        importantLocations[type].forEach((location, index) => {
+                            const icon = locationTypes[type]?.icon || '📍';
+                            const title = locationTypes[type]?.label || type;
+                            
+                            const marker = new google.maps.Marker({
+                                position: { lat: location.lat, lng: location.lng },
+                                map: map,
+                                title: `${title} ${index + 1}: ${location.address}`,
+                                icon: {
+                                    url: `data:image/svg+xml;charset=UTF-8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><text x="15" y="20" font-size="20" text-anchor="middle">${icon}</text></svg>`,
+                                    scaledSize: new google.maps.Size(30, 30),
+                                    anchor: new google.maps.Point(15, 15)
+                                }
+                            });
+                            
+                            markers.push(marker);
                         });
-                        
-                        markers.push(marker);
                     }
                 });
             }
@@ -1752,7 +2635,11 @@
             const resultsDiv = document.getElementById('results');
             
             if (filteredData.length === 0) {
-                resultsDiv.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;">No properties found</div>';
+                let message = 'No properties found';
+                if (isFilterInAreaActive) {
+                    message = 'No properties found within the bounded area';
+                }
+                resultsDiv.innerHTML = `<div style="text-align: center; padding: 40px; color: #666;">${message}</div>`;
                 return;
             }
             
@@ -1766,7 +2653,7 @@
             const amenitiesCol = findColumn(['Amenities', 'amenities', 'amenity']);
             const carAreaCol = findColumn(['Carpet Area', 'carpet area', 'CarArea', 'Carpet_Area']);
             
-            const html = filteredData.map(row => {
+            const html = filteredData.map((row, index) => {
                 const area = row[areaCol];
                 const rent = parsePrice(row[priceCol]);
                 const totalParking = calculateTotalParking(row[parkingCol]);
@@ -1785,6 +2672,9 @@
 
                 // Use Location (address) when Project_Name is not specified
                 const displayName = !isInvalidName ? rawName : (rawAddress || 'Property');
+                
+                // Check if this is a top listing (only when highlighted)
+                const isTopListing = topListingsHighlighted && index < getTopListingsCount();
                 
                 let amenitiesHTML = '';
                 if (amenitiesCol && row[amenitiesCol]) {
@@ -1822,7 +2712,7 @@
                 }
                 
                 return `
-                    <div class="property-card ${matchCategory}" style="border-left-color: #667eea">
+                    <div class="property-card ${matchCategory} ${isTopListing ? 'top-listing' : ''}" style="border-left-color: #667eea">
                         ${matchScore > 0 ? `<span class="match-score">${matchScore}% Match</span>` : ''}
                         <div class='property-name1'>
                         <div class="property-name">${displayName}</div>
@@ -1848,8 +2738,18 @@
             const statsDiv = document.getElementById('stats');
             
             if (matchResults.length > 0) {
+                let areaText = '';
+                if (isFilterInAreaActive) {
+                    areaText = ' (within bounded area)';
+                }
+                
+                let topListingsText = '';
+                if (topListingsHighlighted) {
+                    topListingsText = ` | ⭐ Top ${getTopListingsCount()} highlighted`;
+                }
+                
                 statsDiv.innerHTML = `
-                    <strong>Showing ${visible} properties with 60%+ match score</strong><br>
+                    <strong>Showing ${visible} properties with 60%+ match score${areaText}${topListingsText}</strong><br>
                     <small>Based on proximity to your important locations</small>
                 `;
             } else {
@@ -1858,15 +2758,6 @@
                     <small>Enter your important locations to find matching properties</small>
                 `;
             }
-        }
-        
-        function calculateTotalParking(parkingStr) {
-            if (!parkingStr) return 0;
-            
-            const numbers = parkingStr.match(/\d+/g);
-            if (!numbers) return 0;
-            
-            return numbers.reduce((total, num) => total + parseInt(num), 0);
         }
         
         function parseAmenities(amenitiesStr) {
@@ -1918,6 +2809,185 @@
                     <p>Analyzing properties based on your location preferences...</p>
                 </div>
             `;
+        }
+
+        // Refresh Data Function
+        async function refreshData() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            refreshBtn.textContent = 'Refreshing...';
+            refreshBtn.disabled = true;
+            
+            try {
+                // Clear current data
+                allData = [];
+                filteredData = [];
+                clearStatusMessages();
+                
+                // Reload everything
+                await loadData();
+                
+                refreshBtn.textContent = '✅ Data Refreshed';
+                setTimeout(() => {
+                    refreshBtn.textContent = '🔄 Refresh Data';
+                }, 2000);
+                
+            } catch (error) {
+                showError('Error refreshing data: ' + error.message);
+                showStatusMessage('Error refreshing data: ' + error.message, 'error');
+                refreshBtn.textContent = '🔄 Refresh Data';
+            } finally {
+                refreshBtn.disabled = false;
+            }
+        }
+
+        function clearStatusMessages() {
+            document.getElementById('statusMessages').innerHTML = '';
+        }
+        
+        // Get the selected number of top listings to show
+        function getTopListingsCount() {
+            const select = document.getElementById('topListingsCount');
+            return parseInt(select.value);
+        }
+        
+        // Highlight top listings based on match score
+        function highlightTopListings() {
+            if (matchResults.length === 0) {
+                showStatusMessage('Please run "Find Matching Properties" first to see top listings.', 'warning');
+                return;
+            }
+            
+            const topCount = getTopListingsCount();
+            topListingsHighlighted = true;
+            
+            // Update display to show top listings with special styling
+            displayResults();
+            
+            // Also update markers on map to highlight top listings
+            highlightTopListingsOnMap();
+            
+            showStatusMessage(`Highlighted top ${topCount} properties with highest match scores`, 'success');
+        }
+        
+        // Clear top listings highlight
+        function clearTopListingsHighlight() {
+            topListingsHighlighted = false;
+            
+            // Update display to remove top listing styling
+            displayResults();
+            
+            // Also clear special markers on map
+            clearTopListingsMarkers();
+            
+            showStatusMessage('Cleared top listings highlight', 'info');
+        }
+        
+        // Highlight top listings on the map with special markers
+        function highlightTopListingsOnMap() {
+            // Clear existing top listing markers
+            clearTopListingsMarkers();
+            
+            const topCount = getTopListingsCount();
+            const latCol = findColumn(['Latitude', 'lat', 'latitude']);
+            const lngCol = findColumn(['Longitude', 'lng', 'lon', 'longitude']);
+            const nameCol = findColumn(['Project_Name', 'name', 'title', 'property']);
+            
+            if (!latCol || !lngCol) return;
+            
+            // Get top N properties
+            const topProperties = matchResults.slice(0, topCount);
+            
+            // Create special markers for top listings
+            topProperties.forEach((property, index) => {
+                const lat = parseFloat(property[latCol]);
+                const lng = parseFloat(property[lngCol]);
+                
+                if (!lat || !lng || isNaN(lat) || isNaN(lng)) return;
+                
+                const position = { lat, lng };
+                
+                // Create a special marker for top listings
+                const topMarker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: `⭐ Top ${index + 1}: ${property[nameCol] || 'Property'}`,
+                    icon: {
+                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="18" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                                <text x="20" y="26" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">${index + 1}</text>
+                            </svg>
+                        `),
+                        scaledSize: new google.maps.Size(40, 40),
+                        anchor: new google.maps.Point(20, 20)
+                    },
+                    zIndex: 1000 // Ensure top markers appear above regular markers
+                });
+                
+                const infoContent = `
+                    <div style="min-width: 250px; padding: 10px;">
+                        <h3 style="margin: 0 0 8px 0; color: #333;">
+                            ⭐ Top ${index + 1}: ${property[nameCol] || 'Property'}
+                        </h3>
+                        <div style="background: linear-gradient(135deg, #FFD70015 0%, #FFA50015 100%); padding: 10px; border-radius: 8px; margin-bottom: 8px;">
+                            <strong>Match Score:</strong> ${property.matchScore}%<br>
+                            <strong>Rank:</strong> ${index + 1} of ${matchResults.length}
+                        </div>
+                        ${property.distances ? `
+                            <div style="font-size: 0.9rem; margin-top: 8px;">
+                                <strong>Distances:</strong><br>
+                                ${Object.keys(property.distances).map(locationType => {
+                                    if (property.distances[locationType]) {
+                                        const icon = locationTypes[locationType]?.icon || '📍';
+                                        const label = locationTypes[locationType]?.label || locationType;
+                                        return `${icon} ${label}: ${property.distances[locationType].toFixed(1)} km<br>`;
+                                    }
+                                    return '';
+                                }).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                const infoWindow = new google.maps.InfoWindow({
+                    content: infoContent
+                });
+                
+                topMarker.addListener('click', () => {
+                    infoWindows.forEach(iw => iw.close());
+                    infoWindow.open(map, topMarker);
+                });
+                
+                topListingsMarkers.push({
+                    marker: topMarker,
+                    infoWindow: infoWindow
+                });
+            });
+            
+            // If there are top listings, adjust map view to show them
+            if (topProperties.length > 0) {
+                const bounds = new google.maps.LatLngBounds();
+                topProperties.forEach(property => {
+                    const lat = parseFloat(property[latCol]);
+                    const lng = parseFloat(property[lngCol]);
+                    if (lat && lng && !isNaN(lat) && !isNaN(lng)) {
+                        bounds.extend({ lat, lng });
+                    }
+                });
+                
+                if (!bounds.isEmpty()) {
+                    map.fitBounds(bounds);
+                }
+            }
+        }
+        
+        // Clear top listings markers from map
+        function clearTopListingsMarkers() {
+            topListingsMarkers.forEach(item => {
+                item.marker.setMap(null);
+                item.infoWindow.close();
+            });
+            topListingsMarkers = [];
         }
         
         // Error handling for Google Maps API
